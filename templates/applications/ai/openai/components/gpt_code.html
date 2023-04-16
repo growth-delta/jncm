@@ -1,0 +1,62 @@
+<div class="bg-secondary p-5">
+    <div class="text-white text-center">
+        <div class="fs-1 fw-bold">
+            <i class="text-success fa-solid fa-code fa-2xl"></i><i class="text-warning fa-solid fa-code fa-2xl"></i>
+        </div>
+        </br>
+        <h2 class="text-center fs-1 fs-bold">CodeGPT</h2>
+    </div>
+    <br/>
+
+    {% if code %}
+<pre>
+<code class="line-numbers language-{{lang}}">
+{{code}}
+</code>
+</pre>
+    {% else %}
+<pre>
+<code class="line-numbers language-python">
+
+
+
+
+
+
+
+
+    
+</code>
+</pre>
+    {% endif %}
+    
+    <form method=POST action="{% url 'ai:gpt_code' %}">
+        <br/>
+        {% csrf_token %}
+        <div class="mb-3">
+
+            <select class="form-select" name="lang">
+                <option selected>Select a Programming Language</option>
+                {% for lang in languages %}
+                    <option value="{{lang}}">{{lang}}</option>
+                {% endfor %}
+            </select>
+
+            <br/>
+
+            <textarea class="form-control" name="code" placeholder="Debug a Code" rows="5"></textarea>
+
+            <br/>
+
+            <div class="col-auto text-white">
+                <button type="submit" class="btn btn-secondary mb-3 w-100 fw-bold fs-1">
+                    <i class="text-warning fa-solid fa-bolt fa-2xl"></i>
+                    PROMPT
+                    <i class="text-warning fa-solid fa-bolt fa-2xl"></i>
+                </button>
+            </div>
+            
+        </div>
+        🤖🧠
+    </form>
+</div>

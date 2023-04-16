@@ -1,6 +1,8 @@
 venv
 .env
 *.pyc
+*.cpython-310.pyc
+~$*
 db.sqlite3
 na/
 node_modules/

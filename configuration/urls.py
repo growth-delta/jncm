@@ -35,4 +35,6 @@ urlpatterns = [
         # Restful API
     path('api-auth/', include('rest_framework.urls')), # API | https://www.django-rest-framework.org/#installation
     path('data/api/', include('applications.api.urls')), # API | Restful API
+        # 🧠 Artificial Intelligence
+    path('ai/', include('applications.ai.urls')), # API | https://www.django-rest-framework.org/#installation
 ]
