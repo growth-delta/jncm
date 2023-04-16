@@ -8,10 +8,10 @@
     </div>
     <br/>
 
-    {% if code %}
+    {% if response %}
 <pre>
-<code class="line-numbers language-{{lang}}">
-{{code}}
+<code class="line-numbers language-{{language}}">
+{{response|safe}}
 </code>
 </pre>
     {% else %}
@@ -21,11 +21,6 @@
 
 
 
-
-
-
-
-    
 </code>
 </pre>
     {% endif %}
@@ -35,17 +30,17 @@
         {% csrf_token %}
         <div class="mb-3">
 
-            <select class="form-select" name="lang">
+            <select class="form-select" name="language">
                 <option selected>Select a Programming Language</option>
-                {% for lang in languages %}
-                    <option value="{{lang}}">{{lang}}</option>
+                {% for language in languages %}
+                    <option value="{{language}}">{{language}}</option>
                 {% endfor %}
             </select>
 
             <br/>
 
-            <textarea class="form-control" name="code" placeholder="Debug a Code" rows="5"></textarea>
-
+            <!-- <textarea class="form-control" name="code" placeholder="Debug a Code" rows="5"></textarea> -->
+            <textarea class="form-control" name="code" placeholder="Debug a Code" rows="5" onkeydown="if(event.keyCode==9){event.preventDefault();this.value+=String.fromCharCode(9);}"></textarea>
             <br/>
 
             <div class="col-auto text-white">

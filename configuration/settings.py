@@ -177,3 +177,6 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticatedOrReadOnly'
     ],
 }
+
+# OpenAI setup
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
